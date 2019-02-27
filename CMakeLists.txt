@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 2.8)
+project(cqry C CXX)
+
+if(NOT CMAKE_BUILD_TYPE )
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+set(CMAKE_C_COMPILER "gcc")
+set(CMAKE_CXX_COMPILER "g++")
+set(CMAKE_CXX_FLAGS   "${CMAKE_CXX_FLAGS} -pipe -fPIC -fno-omit-frame-pointer -DNDEBUG -Wall -Wextra -Wno-self-assign -Wno-unused-local-typedefs -Wno-missing-field-initializers -Wno-unused-variable -Wno-deprecated-declarations -Wno-unused-function -Wno-unused-function -Wno-unused-parameter -fdiagnostics-color=auto -std=c++14")
+add_definitions( -ffunction-sections -fdata-sections -Wl,-gc-sections)
+message("CMAKE_BUILD_TYPE = ${CMAKE_BUILD_TYPE}")
+message("CMAKE_CXX_FLAGS = ${CMAKE_CXX_FLAGS}") 
+add_subdirectory(src)
